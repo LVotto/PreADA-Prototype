@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 2079926538}
   - component: {fileID: 2079926537}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Post-Processing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,6 +936,11 @@ PrefabInstance:
       propertyPath: clock_rate
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5857705148124598152, guid: 6e39e3ba710ff144c9d409218908d17a,
+        type: 3}
+      propertyPath: tileMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: d3e7e4448a7584f418dc0f1508400f96, type: 2}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: m_Name

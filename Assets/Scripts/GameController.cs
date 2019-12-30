@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public Vector3 camCenter;
     public Camera cam;
     AudioSource bassFX;
+    public Material tileMaterial;
     void Start(){
         cam = Camera.main;
         if (showTimeElapsed) Debug.Log(ticksElapsed);

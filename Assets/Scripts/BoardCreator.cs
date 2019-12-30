@@ -36,6 +36,7 @@ public class BoardCreator : MonoBehaviour
         foreach (Vector3 center in centers){
             BoxCollider boardCollider;
             GameObject wallColliderObj = new GameObject();
+            wallColliderObj.transform.parent = gameObject.transform;
             wallColliderObj.transform.position = center;
             boardCollider = wallColliderObj.AddComponent<BoxCollider>();
             boardCollider.size = new Vector3 (dimensions.x, dimensions.y, 10);
