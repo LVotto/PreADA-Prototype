@@ -13,10 +13,11 @@ public class ProcessBehaviour : MonoBehaviour
     LinkedList<Instruction> instructions = new LinkedList<Instruction>();
     LinkedListNode<Instruction> currentInstruction;
     bool loop = false;
-    Collider boardCollider;
     Collider processCollider;
     AudioSource killSource;
     public GameObject dyingLightPrefab;
+    public Vector3 nextPosition;
+
     public Vector2 relativeCoordinates(){
         Vector2 pos2d = new Vector2 (transform.position.x, transform.position.y);
         pos2d += new Vector2 (gameController.origin.x, gameController.origin.y);
@@ -65,16 +66,16 @@ public class ProcessBehaviour : MonoBehaviour
     }
     void Start()
     {
+        GameObject gameManagement = GameObject.Find("GameManagement");
         GameObject board = GameObject.Find("Board");
         killSource = board.GetComponent<AudioSource>();
         processCollider = GetComponent<BoxCollider>();
-        gameController = GetComponentInParent<GameController>();
+        gameController = gameManagement.GetComponent<GameController>();
         light_ = GetComponentInChildren<Light>();
         TestDummyStart();
         currentInstruction = instructions.First;
         blinkAnimationCurve = gameController.blinkAnimationCurve;
-        GameObject boardColliderObj = GameObject.Find("Board Collider");
-        boardCollider = boardColliderObj.GetComponent<Collider>();
+        nextPosition = transform.position;
     }
     // Update is called once per frame
     void FixedUpdate()

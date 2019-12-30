@@ -12,7 +12,6 @@ public class SquareMovement : MonoBehaviour
     Vector3 target = new Vector3(0, 0, 0);
     Vector3 start = new Vector3(0,0,0);
     public AnimationCurve ac;
-    int frames = 30;
     public GameObject light_go;
     Light lght;
     void move_to(Vector3 direction){

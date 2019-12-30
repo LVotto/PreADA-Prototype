@@ -25,6 +25,7 @@ public class MoveInstruction : Instruction
 
     public override void Execute(){
         PreUpdate();
+        processBehaviour.nextPosition = stop;
         if (!this.hasStarted){
             hasStarted = true;
             start = process.transform.position;
