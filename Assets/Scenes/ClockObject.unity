@@ -324,6 +324,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8838768159290416882, guid: e9d32d546a665d44c8262d1608f8a1d5,
         type: 3}
+    - target: {fileID: 1157960155, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
+      propertyPath: onHoldProcessPrefab
+      value: 
+      objectReference: {fileID: 90929741626353398, guid: a75c2a7bf9f39f4479a37a89966f05e0,
+        type: 3}
+    - target: {fileID: 1799390072, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: m_Name

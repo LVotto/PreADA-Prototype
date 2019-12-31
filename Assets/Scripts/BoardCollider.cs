@@ -8,6 +8,6 @@ public class BoardCollider : MonoBehaviour
         if (other.gameObject.TryGetComponent(out ProcessBehaviour pb)){
             pb.Kill();
         }
-        Debug.Log("EXIT");
+        // Debug.Log("EXIT");
     }
 }

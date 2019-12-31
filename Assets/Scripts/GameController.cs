@@ -50,4 +50,8 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    public int getTimer(){
+        return timer;
+    }
 }
