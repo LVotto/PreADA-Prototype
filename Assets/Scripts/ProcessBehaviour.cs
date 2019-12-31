@@ -40,7 +40,7 @@ public class ProcessBehaviour : MonoBehaviour
     void LoadInstructions(){
         instructions = new LinkedList<Instruction>();
         List<Vector3> dirs = new List<Vector3> { 
-            Vector3.up, Vector3.left 
+            Vector3.up, Vector3.left, Vector3.down
         };
         foreach(Vector3 v in dirs){
             MoveInstruction instr = new MoveInstruction(gameController,
