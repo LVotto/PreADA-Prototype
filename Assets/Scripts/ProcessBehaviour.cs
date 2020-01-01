@@ -17,6 +17,7 @@ public class ProcessBehaviour : MonoBehaviour
     AudioSource killSource;
     public GameObject dyingLightPrefab;
     public Vector3 nextPosition;
+    public List<Vector3> directions;
 
     public Vector2 relativeCoordinates(){
         Vector2 pos2d = new Vector2 (transform.position.x, transform.position.y);
@@ -37,11 +38,9 @@ public class ProcessBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
     // Start is called before the first frame update
-    void LoadInstructions(){
+    void LoadMoveInstructions(List<Vector3> dirs){
         instructions = new LinkedList<Instruction>();
-        List<Vector3> dirs = new List<Vector3> { 
-            Vector3.up, Vector3.left, Vector3.down
-        };
+        
         foreach(Vector3 v in dirs){
             MoveInstruction instr = new MoveInstruction(gameController,
                                                         this.gameObject,
@@ -60,11 +59,11 @@ public class ProcessBehaviour : MonoBehaviour
         }
     }
 
-    void TestDummyStart(){
-        LoadInstructions();
+    void TestDummyStart(List<Vector3> dirs){
+        LoadMoveInstructions(dirs);
         loop = true;
     }
-    void Start()
+    void Awake()
     {
         GameObject gameManagement = GameObject.Find("GameManagement");
         GameObject board = GameObject.Find("Board");
@@ -72,7 +71,12 @@ public class ProcessBehaviour : MonoBehaviour
         processCollider = GetComponent<BoxCollider>();
         gameController = gameManagement.GetComponent<GameController>();
         light_ = GetComponentInChildren<Light>();
-        TestDummyStart();
+        if (directions.Count == 0){
+            directions = new List<Vector3> { 
+                Vector3.up, Vector3.left, Vector3.down
+            };
+        }
+        TestDummyStart(directions);
         currentInstruction = instructions.First;
         blinkAnimationCurve = gameController.blinkAnimationCurve;
         nextPosition = transform.position;
@@ -99,10 +103,13 @@ public class ProcessBehaviour : MonoBehaviour
         }
     }
 
-    // void OnTriggerExit(Collider other){
-    //     Kill();
-    // }
-
+    void OnTriggerEnter(Collider other){
+        if (other.gameObject.TryGetComponent(out ProcessBehaviour pb)){
+            pb.Kill();
+            Kill();
+        }
+        // Debug.Log("EXIT");
+    }
     public float getTime(){
         return t;
     }

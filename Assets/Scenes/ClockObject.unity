@@ -333,6 +333,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5857705148124598152, guid: 6e39e3ba710ff144c9d409218908d17a,
+        type: 3}
+      propertyPath: boardDimensions.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: m_Name
