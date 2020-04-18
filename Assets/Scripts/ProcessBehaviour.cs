@@ -12,7 +12,7 @@ public class ProcessBehaviour : MonoBehaviour
     AnimationCurve blinkAnimationCurve;
     LinkedList<Instruction> instructions = new LinkedList<Instruction>();
     LinkedListNode<Instruction> currentInstruction;
-    bool loop = false;
+    bool loop = true;
     Collider processCollider;
     AudioSource killSource;
     public GameObject dyingLightPrefab;
@@ -38,7 +38,7 @@ public class ProcessBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
     // Start is called before the first frame update
-    void LoadMoveInstructions(List<Vector3> dirs){
+    public void LoadMoveInstructions(List<Vector3> dirs){
         instructions = new LinkedList<Instruction>();
         
         foreach(Vector3 v in dirs){
@@ -47,6 +47,7 @@ public class ProcessBehaviour : MonoBehaviour
                                                         v); 
             instructions.AddLast(instr);
         }
+        currentInstruction = instructions.First;
     }
 
     void ResetInstructions(){
@@ -67,16 +68,17 @@ public class ProcessBehaviour : MonoBehaviour
     {
         GameObject gameManagement = GameObject.Find("GameManagement");
         GameObject board = GameObject.Find("Board");
+        GameObject processes = GameObject.Find("Processes");
         killSource = board.GetComponent<AudioSource>();
         processCollider = GetComponent<BoxCollider>();
         gameController = gameManagement.GetComponent<GameController>();
         light_ = GetComponentInChildren<Light>();
-        if (directions.Count == 0){
-            directions = new List<Vector3> { 
-                Vector3.up, Vector3.left, Vector3.down
-            };
-        }
-        TestDummyStart(directions);
+        // if (directions.Count == 0){
+        //     directions = new List<Vector3> { 
+        //         Vector3.up, Vector3.left, Vector3.down
+        //     };
+        // }
+        // TestDummyStart(directions);
         currentInstruction = instructions.First;
         blinkAnimationCurve = gameController.blinkAnimationCurve;
         nextPosition = transform.position;

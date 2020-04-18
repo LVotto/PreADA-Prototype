@@ -21,17 +21,28 @@ public class GameController : MonoBehaviour
     public Camera cam;
     AudioSource bassFX;
     public Material tileMaterial;
-    void Start(){
+    public float yTopSpacing = 2f;
+    public float yBottomSpacing = .5f;
+    public float xLeftSpacing = .5f;
+    public float xRightSpacing = .5f;
+    public Vector2 corrections;
+    void Awake(){
         cam = Camera.main;
         if (showTimeElapsed) Debug.Log(ticksElapsed);
-        firstCellCenter = new Vector2 (-boardDimensions.x * cellSize / 2, -boardDimensions.y * cellSize / 2);
+        corrections.x = (1 - boardDimensions.x % 2) * .5f;
+        corrections.y = (1 - boardDimensions.y % 2) * .5f;
+        firstCellCenter = new Vector2 (
+            -boardDimensions.x * cellSize / 2,
+            -(boardDimensions.y * cellSize + yTopSpacing) / 2
+        );
+        firstCellCenter += corrections;
         bassFX = GetComponent<AudioSource>();
         bassFX.Play();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown("p")){
+        if (Input.GetKeyDown(KeyCode.Space)){
             isPaused = !isPaused;
         }
         if (!isPaused && timer == 0 && ticksElapsed < 4) bassFX.Play();
