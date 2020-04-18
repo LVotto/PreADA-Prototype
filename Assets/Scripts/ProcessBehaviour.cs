@@ -82,7 +82,7 @@ public class ProcessBehaviour : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate() {
-        timer = (float)timeController.timer;
+        timer = (float)timeController.Timer;
         rate = (float)timeController.clockRate;
         t = 1 - (rate - timer) / rate;
         light_.intensity = blinkAnimationCurve.Evaluate(t);

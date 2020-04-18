@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour {
     int ticksElapsed = 0;
-    public int clockRate = 20;
-    public int timer = 0;
-
-    public bool showTimeElapsed;
+    int timer = 0;
     bool isPaused;
 
+    public int clockRate = 20;
+    public bool showTimeElapsed;
     public AudioSource bassFX;
+
+    public int Timer { get => timer; }
 
     void Update() {
         if (Input.GetKeyDown("p")) {
