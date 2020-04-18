@@ -23,8 +23,8 @@ public class BoardCreator : MonoBehaviour {
         //corrections.y = (1 - dimensions.y % 2) * .5f;
         padding = new Vector2(2, 2);
         firstCellCenter = new Vector3(
-            -dimensions.x / 2 + cellSize / 2,
-            -dimensions.y / 2 + cellSize / 2,
+            -dimensions.x / 2,
+            -dimensions.y / 2,
             0
         );
 
@@ -61,5 +61,6 @@ public class BoardCreator : MonoBehaviour {
         float height = (dimensions.y + padding.y);
         gameCamera = Camera.main;
         gameCamera.orthographicSize = Mathf.Max(width / gameCamera.aspect, height) / 2;
+        gameCamera.transform.Translate(-cellSize/2, -cellSize / 2, 0);
     }
 }
