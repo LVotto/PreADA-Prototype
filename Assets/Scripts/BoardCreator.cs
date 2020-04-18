@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardCreator : MonoBehaviour {
-    public GameObject tilePrefab;
+    public GameObject TilePrefab;
     public Vector2 corrections;
     public Vector2Int dimensions;
     public Camera gameCamera;
 
     //GameController gameController;
     GameObject boardColliderObj;
-
-    float cellSize = 1;
     Vector3 firstCellCenter;
     Vector2 padding;
+
+    public float CellSize { get; } = 1;
 
     void Start() {
         //gameController = GetComponentInParent<GameController>();
@@ -30,10 +30,10 @@ public class BoardCreator : MonoBehaviour {
 
         for (int x = 0; x < dimensions.x; x++) {
             for (int y = 0; y < dimensions.y; y++) {
-                Vector3 pos = new Vector3(x * cellSize, y * cellSize, 0);
+                Vector3 pos = new Vector3(x * CellSize, y * CellSize, 0);
                 //pos += firstCellCenter;
-                GameObject tile = Instantiate(tilePrefab, pos + firstCellCenter, Quaternion.identity);
-                tile.transform.localScale = cellSize * Vector3.one;
+                GameObject tile = Instantiate(TilePrefab, pos + firstCellCenter, Quaternion.identity);
+                tile.transform.localScale = CellSize * Vector3.one;
                 tile.transform.parent = transform;
                 tile.name = "Tile " + (x+1) + "x" + (y+1);
             }
@@ -61,6 +61,6 @@ public class BoardCreator : MonoBehaviour {
         float height = (dimensions.y + padding.y);
         gameCamera = Camera.main;
         gameCamera.orthographicSize = Mathf.Max(width / gameCamera.aspect, height) / 2;
-        gameCamera.transform.Translate(-cellSize/2, -cellSize / 2, 0);
+        gameCamera.transform.Translate(-CellSize/2, -CellSize / 2, 0);
     }
 }

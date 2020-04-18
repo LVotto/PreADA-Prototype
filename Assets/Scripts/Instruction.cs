@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Instruction
-{
+public abstract class Instruction {
     public float t = 0;
     public ProcessBehaviour processBehaviour;
     public GameObject process;
@@ -11,7 +10,7 @@ public abstract class Instruction
     public bool hasStarted;
     public GameController gameController;
     public abstract void Execute();
-    public void PreUpdate(){
+    public void PreUpdate() {
         t = processBehaviour.getTime();
     }
 }
