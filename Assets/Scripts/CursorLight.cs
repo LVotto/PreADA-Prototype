@@ -20,10 +20,12 @@ public class CursorLight : MonoBehaviour
     Vector3 MouseToScreen(){
         Vector3 depth = new Vector3(0, 0, lightDepth);
         Vector3 new_pos = cam.ScreenToWorldPoint(Input.mousePosition) + depth;
-        new_pos.x = gameController.cellSize * Mathf.Ceil(new_pos.x) 
-                  + gameController.origin.x;
-        new_pos.y = gameController.cellSize * Mathf.Ceil(new_pos.y)
-                  + gameController.origin.y;
+        new_pos.x = gameController.cellSize 
+                  * Mathf.Round(new_pos.x + gameController.corrections.x)
+                  - gameController.corrections.x;
+        new_pos.y = gameController.cellSize * Mathf.Round(new_pos.y
+                  + gameController.corrections.y)
+                  - gameController.corrections.y;
         return new_pos;  
     }
 }
