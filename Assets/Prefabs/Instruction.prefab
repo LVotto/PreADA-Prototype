@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7756086107496577814}
   - component: {fileID: 7756086107496577812}
-  - component: {fileID: 6480168534895798165}
-  - component: {fileID: 8086344357815181188}
+  - component: {fileID: 5564298840804797484}
+  - component: {fileID: 6103609751979504003}
   m_Layer: 0
   m_Name: Instruction
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756086107496577810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5709085, y: -2.9014394, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9038045a6c6fa4cce9cbf833431fd161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &6480168534895798165
+--- !u!33 &5564298840804797484
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756086107496577810}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6103609751979504003
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,11 +91,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &8086344357815181188
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7756086107496577810}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}

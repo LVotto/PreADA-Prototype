@@ -802,5 +802,5 @@ MonoBehaviour:
   TilePrefab: {fileID: 6318836723339760213, guid: b2091a4bee58dfd46bcf013865344267,
     type: 3}
   corrections: {x: 0, y: 0}
-  dimensions: {x: 24, y: 12}
+  dimensions: {x: 40, y: 12}
   gameCamera: {fileID: 0}
