@@ -28,13 +28,7 @@ public class GameController : MonoBehaviour {
     void Awake(){
         cam = Camera.main;
         //if (showTimeElapsed) Debug.Log(ticksElapsed);
-        corrections.x = (1 - boardDimensions.x % 2) * .5f;
-        corrections.y = (1 - boardDimensions.y % 2) * .5f;
-        firstCellCenter = new Vector2 (
-            -boardDimensions.x * cellSize / 2,
-            -(boardDimensions.y * cellSize + yTopSpacing) / 2
-        );
-        firstCellCenter += corrections;
+        
         bassFX = GetComponent<AudioSource>();
         bassFX.Play();
     }

@@ -2,65 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardCreator : MonoBehaviour
-{
-    GameController gameController;
-    Vector2Int dimensions;
+public class BoardCreator : MonoBehaviour {
     public GameObject tilePrefab;
-    Camera cam;
+    public Vector2 corrections;
+    public Vector2Int dimensions;
+    public Camera gameCamera;
+
+    //GameController gameController;
     GameObject boardColliderObj;
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameController = GetComponentInParent<GameController>();
-        dimensions = gameController.boardDimensions;
-        for(int x = 0; x < dimensions.x; x++){
-            for (int y = 0; y < dimensions.y; y++){
-                Vector3 pos = new Vector3(
-                    x * gameController.cellSize,
-                    y * gameController.cellSize ,
-                    -.1f
-                );
-                // pos += - gameController.origin;
-                // pos.x += - dimensions.x / 2 * gameController.cellSize;
-                // pos.y += - dimensions.y / 2 * gameController.cellSize;
-                Vector3 firstCellCenter = new Vector3(
-                    gameController.firstCellCenter.x,
-                    gameController.firstCellCenter.y,
-                    0
-                );
-                pos += firstCellCenter;
-                GameObject tile = Instantiate(tilePrefab, pos, Quaternion.identity);
-                // tile.transform.localScale = gameController.cellSize * Vector3.one;
+
+    float cellSize = 1;
+    Vector3 firstCellCenter;
+    Vector2 padding;
+
+    void Start() {
+        //gameController = GetComponentInParent<GameController>();
+        //dimensions = dimensions;
+        //firstCellCenter = new Vector2(-dimensions.x * cellSize / 2, -dimensions.y * cellSize / 2);
+        //corrections.x = (1 - dimensions.x % 2) * .5f;
+        //corrections.y = (1 - dimensions.y % 2) * .5f;
+        padding = new Vector2(2, 2);
+        firstCellCenter = new Vector3(
+            -dimensions.x / 2 + cellSize / 2,
+            -dimensions.y / 2 + cellSize / 2,
+            0
+        );
+
+        for (int x = 0; x < dimensions.x; x++) {
+            for (int y = 0; y < dimensions.y; y++) {
+                Vector3 pos = new Vector3(x * cellSize, y * cellSize, 0);
+                //pos += firstCellCenter;
+                GameObject tile = Instantiate(tilePrefab, pos + firstCellCenter, Quaternion.identity);
+                tile.transform.localScale = cellSize * Vector3.one;
                 tile.transform.parent = transform;
+                tile.name = "Tile " + (x+1) + "x" + (y+1);
             }
         }
 
-        List<Vector3> centers = new List<Vector3> {
-            new Vector3(dimensions.x, -gameController.yTopSpacing / 2, 0),
-            new Vector3(-dimensions.x, -gameController.yTopSpacing / 2, 0),
-            new Vector3(0, dimensions.y - gameController.yTopSpacing / 2, 0),
-            new Vector3(0, -dimensions.y - gameController.yTopSpacing / 2, 0),
-        };
-        boardColliderObj = GameObject.Find("Board Collider");
-        foreach (Vector3 center in centers){
-            BoxCollider boardCollider;
-            GameObject wallColliderObj = new GameObject();
-            wallColliderObj.transform.parent = gameObject.transform;
-            wallColliderObj.transform.position = center;
-            boardCollider = wallColliderObj.AddComponent<BoxCollider>();
-            boardCollider.size = new Vector3 (dimensions.x, dimensions.y, 10);
-            boardCollider.isTrigger = true;
-            wallColliderObj.AddComponent<BoardCollider>();
-        }
+        //List<Vector3> centers = new List<Vector3> {
+        //    new Vector3(dimensions.x, -yTopSpacing / 2, 0),
+        //    new Vector3(-dimensions.x, -yTopSpacing / 2, 0),
+        //    new Vector3(0, dimensions.y - yTopSpacing / 2, 0),
+        //    new Vector3(0, -dimensions.y - yTopSpacing / 2, 0),
+        //};
+        //boardColliderObj = GameObject.Find("Board Collider");
+        //foreach (Vector3 center in centers) {
+        //    BoxCollider boardCollider;
+        //    GameObject wallColliderObj = new GameObject();
+        //    wallColliderObj.transform.parent = gameObject.transform;
+        //    wallColliderObj.transform.position = center;
+        //    boardCollider = wallColliderObj.AddComponent<BoxCollider>();
+        //    boardCollider.size = new Vector3(dimensions.x, dimensions.y, 10);
+        //    boardCollider.isTrigger = true;
+        //    wallColliderObj.AddComponent<BoardCollider>();
+        //}
 
-        float width = (dimensions.x 
-                    + gameController.xLeftSpacing
-                    + gameController.xRightSpacing);
-        float height = (dimensions.y 
-                    + gameController.yTopSpacing
-                    + gameController.yBottomSpacing);
-        cam = Camera.main;
-        cam.orthographicSize = Mathf.Max(width / cam.aspect, height) / 2;
+        float width = (dimensions.x + padding.x);
+        float height = (dimensions.y + padding.y);
+        gameCamera = Camera.main;
+        gameCamera.orthographicSize = Mathf.Max(width / gameCamera.aspect, height) / 2;
     }
 }
