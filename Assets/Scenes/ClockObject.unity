@@ -227,32 +227,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: dimensions.x
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: Dimensions.x
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: Dimensions.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: TilePrefab
-      value: 
-      objectReference: {fileID: 6318836723339760213, guid: b2091a4bee58dfd46bcf013865344267,
-        type: 3}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: dimensions.y
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5857705146409031145, guid: 6e39e3ba710ff144c9d409218908d17a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: m_Name
