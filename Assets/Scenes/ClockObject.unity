@@ -120,33 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &581837565 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5857705147548617725}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &581837566 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1691908152, guid: 6e39e3ba710ff144c9d409218908d17a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5857705147548617725}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &581837567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581837565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b082b4bb973874e7d895f67f65d0b921, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clockRate: 20
-  showTimeElapsed: 0
-  bassFX: {fileID: 581837566}
 --- !u!1001 &5857705147548617725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,31 +127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1711156916, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1779191993, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: dimensions.x
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: dimensions.y
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799390071, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
-      propertyPath: cellSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5857705146409031145, guid: 6e39e3ba710ff144c9d409218908d17a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: m_Name

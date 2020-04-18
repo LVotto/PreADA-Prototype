@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     [Range(1, 120)]
 
-
     public AnimationCurve moveAnimationCurve;
     public AnimationCurve blinkAnimationCurve;
     public AudioSource bassFX;
@@ -25,18 +24,8 @@ public class GameController : MonoBehaviour {
     public float xLeftSpacing = .5f;
     public float xRightSpacing = .5f;
     public Vector2 corrections;
-    void Awake(){
-        cam = Camera.main;
-        //if (showTimeElapsed) Debug.Log(ticksElapsed);
-        
+    void Awake() {
         bassFX = GetComponent<AudioSource>();
         bassFX.Play();
     }
-
-
-    void Start() {
-        firstCellCenter = new Vector2(-boardDimensions.x * cellSize / 2, -boardDimensions.y * cellSize / 2);
-        bassFX.Play();
-    }
-
 }

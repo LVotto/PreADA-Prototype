@@ -187,7 +187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1711156917
 Transform:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779191994
 Transform:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5857705146409031144
 Transform:
   m_ObjectHideFlags: 0
@@ -429,8 +429,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5857705148124598155}
-  - component: {fileID: 5857705148124598152}
   - component: {fileID: 1691908152}
+  - component: {fileID: 5857705148124598152}
+  - component: {fileID: 581837567}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: GameController
@@ -455,95 +456,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5857705148124598152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5857705148124598153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5ef19c795c5f74f96f3c679dec2f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clock_rate: 20
-  timer: 0
-  moveAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.68
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  blinkAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2.857143
-      outSlope: 2.857143
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.35
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1.5384616
-      outSlope: -1.5384616
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  origin: {x: -0.5, y: -0.5, z: 0}
-  cellSize: 1
-  showTimeElapsed: 0
-  isPaused: 0
-  boardDimensions: {x: 24, y: 12}
-  firstCellCenter: {x: 0, y: 0}
-  camCenter: {x: 0, y: 0, z: 0}
-  cam: {fileID: 0}
-  tileMaterial: {fileID: 2100000, guid: d3e7e4448a7584f418dc0f1508400f96, type: 2}
 --- !u!82 &1691908152
 AudioSource:
   m_ObjectHideFlags: 0
@@ -640,6 +552,112 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5857705148124598152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857705148124598153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5ef19c795c5f74f96f3c679dec2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.68
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  blinkAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.857143
+      outSlope: 2.857143
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.35
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.5384616
+      outSlope: -1.5384616
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bassFX: {fileID: 0}
+  cellSize: 1
+  origin: {x: -0.5, y: -0.5, z: 0}
+  boardDimensions: {x: 24, y: 12}
+  firstCellCenter: {x: 0, y: 0}
+  camCenter: {x: 0, y: 0, z: 0}
+  tileMaterial: {fileID: 2100000, guid: d3e7e4448a7584f418dc0f1508400f96, type: 2}
+  cam: {fileID: 0}
+  yTopSpacing: 2
+  yBottomSpacing: 0.5
+  xLeftSpacing: 0.5
+  xRightSpacing: 0.5
+  corrections: {x: 0, y: 0}
+--- !u!114 &581837567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857705148124598153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b082b4bb973874e7d895f67f65d0b921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockRate: 20
+  showTimeElapsed: 0
+  bassFX: {fileID: 1691908152}
 --- !u!1 &7247644343062410522
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,3 +801,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6318836723339760213, guid: b2091a4bee58dfd46bcf013865344267,
     type: 3}
+  corrections: {x: 0, y: 0}
+  dimensions: {x: 24, y: 12}
+  gameCamera: {fileID: 0}
