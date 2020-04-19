@@ -887,6 +887,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 587585501, guid: 6e39e3ba710ff144c9d409218908d17a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 298074185416541601, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: ProcessPrefab
@@ -908,6 +912,11 @@ PrefabInstance:
       propertyPath: Board
       value: 
       objectReference: {fileID: 684350957}
+    - target: {fileID: 5857705146409031146, guid: 6e39e3ba710ff144c9d409218908d17a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
       propertyPath: m_Name

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProcessDeployer : MonoBehaviour {
+public class ProcessDeployerBehaviour : MonoBehaviour {
     Program program;
 
     public GameObject ProcessPrefab;
@@ -12,6 +12,8 @@ public class ProcessDeployer : MonoBehaviour {
         set {
             program = value;
             enabled = value != null;
+            GameObject processPlaceholder = transform.GetChild(0).gameObject;
+            processPlaceholder.SetActive(value != null);
         }
     }
 

@@ -9,11 +9,9 @@ public class ProgramBuilderBehaviour : MonoBehaviour {
     public GameObject DeployButtonObject;
 
     Program program;
-    Button deployButton;
 
     void Start() {
         program = new Program();
-        deployButton = DeployButtonObject.GetComponent<Button>();
     }
 
     public void AddInstruction(IInstruction instruction) {
@@ -29,7 +27,7 @@ public class ProgramBuilderBehaviour : MonoBehaviour {
     }
 
     public void OnDeployButtonClick() {
-        ProcessDeployer processDeployer = CursorObject.GetComponent<ProcessDeployer>();
+        ProcessDeployerBehaviour processDeployer = CursorObject.GetComponent<ProcessDeployerBehaviour>();
         processDeployer.Program = program;
         gameObject.SetActive(false);
     }
