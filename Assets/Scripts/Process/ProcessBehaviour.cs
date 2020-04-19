@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProcessBehaviour : MonoBehaviour {
-    public TimeController timeController;
+    Collider processCollider;
+    Light lightComponent;
+    TimeController timeController;
+
+    public AnimationCurve moveAnimationCurve;
+    public AnimationCurve blinkAnimationCurve;
+
     GameController gameController;
-    Light light_;
     float timer;
     float rate;
-    float t;
-    AnimationCurve blinkAnimationCurve;
+    //float t;
     LinkedList<Instruction> instructions = new LinkedList<Instruction>();
     LinkedListNode<Instruction> currentInstruction;
     bool loop = true;
-    Collider processCollider;
     AudioSource killSource;
     public GameObject dyingLightPrefab;
     public Vector3 nextPosition;
     public List<Vector3> directions;
+
+    public Program Program { get; set; }
 
     public Vector2 relativeCoordinates() {
         Vector2 pos2d = new Vector2(transform.position.x, transform.position.y);
@@ -71,7 +76,8 @@ public class ProcessBehaviour : MonoBehaviour {
         killSource = board.GetComponent<AudioSource>();
         processCollider = GetComponent<BoxCollider>();
         gameController = gameManagement.GetComponent<GameController>();
-        light_ = GetComponentInChildren<Light>();
+        lightComponent = GetComponentInChildren<Light>();
+        timeController = gameManagement.GetComponent<TimeController>();
         // if (directions.Count == 0){
         //     directions = new List<Vector3> { 
         //         Vector3.up, Vector3.left, Vector3.down
@@ -83,23 +89,23 @@ public class ProcessBehaviour : MonoBehaviour {
         blinkAnimationCurve = gameController.blinkAnimationCurve;
         nextPosition = transform.position;
     }
-    // Update is called once per frame
+
     void FixedUpdate() {
-        timer = (float)timeController.Timer;
-        rate = (float)timeController.clockRate;
-        t = 1 - (rate - timer) / rate;
-        light_.intensity = blinkAnimationCurve.Evaluate(t);
-        if (currentInstruction != null) {
-            Instruction curr = currentInstruction.Value;
-            if (!curr.isDone) {
-                curr.Execute();
-            } else {
-                currentInstruction = currentInstruction.Next;
-            }
-        } else if (loop) {
-            ResetInstructions();
-            currentInstruction = instructions.First;
-        }
+        timer = timeController.Timer;
+        rate = timeController.clockRate;
+        float delta = 1 - (rate - timer) / rate;
+        lightComponent.intensity = blinkAnimationCurve.Evaluate(delta);
+        //if (currentInstruction != null) {
+        //    Instruction curr = currentInstruction.Value;
+        //    if (!curr.isDone) {
+        //        curr.Execute();
+        //    } else {
+        //        currentInstruction = currentInstruction.Next;
+        //    }
+        //} else if (loop) {
+        //    ResetInstructions();
+        //    currentInstruction = instructions.First;
+        //}
     }
 
     void OnTriggerEnter(Collider other) {
@@ -110,6 +116,6 @@ public class ProcessBehaviour : MonoBehaviour {
         // Debug.Log("EXIT");
     }
     public float getTime() {
-        return t;
+        return 10;
     }
 }

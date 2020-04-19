@@ -13,10 +13,10 @@ public static class InstructionType {
     };
 
     public static Dictionary<int, string> InstructionTypeNameMap = new Dictionary<int, string>() {
-        { Movement.Straight.Up, "Move Up" },
-        { Movement.Straight.Right, "Move Right" },
-        { Movement.Straight.Down, "Move Down" },
-        { Movement.Straight.Left, "Move Left" },
+        { Movement.Straight.Up, "⬆ Move Up" },
+        { Movement.Straight.Right, "⮕ Move Right" },
+        { Movement.Straight.Down, "⬇ Move Down" },
+        { Movement.Straight.Left, "⬅ Move Left" },
     };
 
     public static class Movement {

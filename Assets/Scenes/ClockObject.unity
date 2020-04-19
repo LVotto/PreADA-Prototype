@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &151182458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5857705147548617725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &255012647
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +521,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883951998}
   m_CullTransparentMesh: 0
+--- !u!1 &1264745877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5857705146409031145, guid: 6e39e3ba710ff144c9d409218908d17a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5857705147548617725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1585088234
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProgramInstructionPrefab: {fileID: 7756048818935594159, guid: eda17a0f5c57b4721906636041727905,
     type: 3}
+  CursorObject: {fileID: 1264745877}
+  DeployButtonObject: {fileID: 509891773}
 --- !u!114 &1850054283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,10 +870,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5857705146409031145, guid: 6e39e3ba710ff144c9d409218908d17a,
+    - target: {fileID: 298074185416541601, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: ProcessPrefab
+      value: 
+      objectReference: {fileID: 8838768159290416882, guid: e9d32d546a665d44c8262d1608f8a1d5,
+        type: 3}
+    - target: {fileID: 298074185416541601, guid: 6e39e3ba710ff144c9d409218908d17a,
+        type: 3}
+      propertyPath: GameManagement
+      value: 
+      objectReference: {fileID: 151182458}
+    - target: {fileID: 298074185416541601, guid: 6e39e3ba710ff144c9d409218908d17a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5857705148124598153, guid: 6e39e3ba710ff144c9d409218908d17a,
         type: 3}

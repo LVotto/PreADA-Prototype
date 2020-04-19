@@ -310,14 +310,14 @@ GameObject:
   - component: {fileID: 5857705146409031144}
   - component: {fileID: 5857705146409031147}
   - component: {fileID: 5857705146409031146}
-  - component: {fileID: 1157960155}
+  - component: {fileID: 298074185416541601}
   m_Layer: 0
   m_Name: Cursor Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5857705146409031144
 Transform:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightDepth: 8
---- !u!114 &1157960155
+--- !u!114 &298074185416541601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,11 +415,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5857705146409031145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccf0d12d1b06ec40ac3add732edf13f, type: 3}
+  m_Script: {fileID: 11500000, guid: cc6167b5ef3894c4595d30af712362a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHoldProcessPrefab: {fileID: 90929741626353398, guid: a75c2a7bf9f39f4479a37a89966f05e0,
+  processPrefab: {fileID: 8838768159290416882, guid: e9d32d546a665d44c8262d1608f8a1d5,
     type: 3}
+  gameManagement: {fileID: 5857705148124598153}
 --- !u!1 &5857705148124598153
 GameObject:
   m_ObjectHideFlags: 0

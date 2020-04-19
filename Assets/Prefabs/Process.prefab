@@ -94,9 +94,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75009cebc1af64346bc7867c50b4a239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  blinkAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.857143
+      outSlope: 2.857143
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.35
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.5384616
+      outSlope: -1.5384616
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timeController: {fileID: 0}
   dyingLightPrefab: {fileID: 4077253431285530332, guid: ce50db971dbdf974e8917c7a3f924c56,
     type: 3}
   nextPosition: {x: 0, y: 0, z: 0}
+  directions: []
 --- !u!54 &3162409864398166854
 Rigidbody:
   m_ObjectHideFlags: 0
