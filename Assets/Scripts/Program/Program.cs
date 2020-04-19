@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Program {
-    public List<IInstruction> Instructions { get; }
+    public LinkedList<IInstruction> Instructions { get; }
+    public ProcessBehaviour Process { get; set; }
 
     public Program() {
-        Instructions = new List<IInstruction>();
+        Instructions = new LinkedList<IInstruction>();
     }
 
     public void AddInstruction(IInstruction instruction) {
-        Instructions.Add(instruction);
+        Instructions.AddLast(instruction);
+        instruction.Program = this;
     }
 }

@@ -9,7 +9,6 @@ public abstract class Instruction : IInstruction {
     public bool isDone;
     public bool hasStarted;
     public GameController gameController;
-    public abstract void Execute();
     public void PreUpdate() {
         t = processBehaviour.getTime();
     }
@@ -25,10 +24,12 @@ public abstract class Instruction : IInstruction {
             LoadMaterial();
         }
     }
-
     public string Name {
         get => InstructionType.InstructionTypeNameMap[Type];
     }
+    public Program Program { get; set; }
+
+    public abstract void Execute();
 
     protected void LoadMaterial() {
         string source;

@@ -7,4 +7,7 @@ public interface IInstruction {
     Material Material { get; }
     int Type { get; set; }
     string Name { get; }
+    Program Program { get; set; }
+
+    void Execute();
 }

@@ -31,4 +31,8 @@ public class TimeController : MonoBehaviour {
             }
         }
     }
+
+    public bool isCycleStart() {
+        return !isPaused && timer == 0;
+    }
 }

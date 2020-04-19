@@ -7,7 +7,7 @@ public class StraightMovementInstruction : Instruction {
         { InstructionType.Movement.Straight.Up, new Vector2(0, 1) },
         { InstructionType.Movement.Straight.Right, new Vector2(1, 0) },
         { InstructionType.Movement.Straight.Down, new Vector2(0, -1) },
-        { InstructionType.Movement.Straight.Left, new Vector2(0, -1) },
+        { InstructionType.Movement.Straight.Left, new Vector2(-1, 0) },
     };
 
     public StraightMovementInstruction() : this(InstructionType.Void) { }
@@ -21,6 +21,6 @@ public class StraightMovementInstruction : Instruction {
     }
 
     public override void Execute() {
-        throw new System.NotImplementedException();
+        Program.Process.LocalPosition += Direction;
     }
 }

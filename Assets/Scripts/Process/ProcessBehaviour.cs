@@ -14,8 +14,8 @@ public class ProcessBehaviour : MonoBehaviour {
     float timer;
     float rate;
     //float t;
-    LinkedList<Instruction> instructions = new LinkedList<Instruction>();
-    LinkedListNode<Instruction> currentInstruction;
+    //LinkedList<IInstruction> instructions = new LinkedList<IInstruction>();
+    LinkedListNode<IInstruction> currentInstructionNode;
     bool loop = true;
     AudioSource killSource;
     public GameObject dyingLightPrefab;
@@ -23,6 +23,12 @@ public class ProcessBehaviour : MonoBehaviour {
     public List<Vector3> directions;
 
     public Program Program { get; set; }
+    public Vector2 LocalPosition {
+        get => gameObject.transform.localPosition;
+        set {
+            gameObject.transform.localPosition = value;
+        }
+    }
 
     public Vector2 relativeCoordinates() {
         Vector2 pos2d = new Vector2(transform.position.x, transform.position.y);
@@ -44,32 +50,32 @@ public class ProcessBehaviour : MonoBehaviour {
     }
     // Start is called before the first frame update
     public void LoadMoveInstructions(List<Vector3> dirs) {
-        instructions = new LinkedList<Instruction>();
+        //instructions = new LinkedList<Instruction>();
 
-        foreach (Vector3 v in dirs) {
-            MoveInstruction instr = new MoveInstruction(gameController,
-                                                        this.gameObject,
-                                                        v);
-            instructions.AddLast(instr);
-        }
-        currentInstruction = instructions.First;
+        //foreach (Vector3 v in dirs) {
+        //    MoveInstruction instr = new MoveInstruction(gameController,
+        //                                                this.gameObject,
+        //                                                v);
+        //    instructions.AddLast(instr);
+        //}
+        //currentInstruction = instructions.First;
     }
 
     void ResetInstructions() {
-        LinkedListNode<Instruction> ci = instructions.First;
-        while (ci != null) {
-            Instruction c = ci.Value;
-            c.isDone = false;
-            c.hasStarted = false;
-            ci = ci.Next;
-        }
+        //LinkedListNode<IInstruction> ci = instructions.First;
+        //while (ci != null) {
+        //    Instruction c = ci.Value;
+        //    c.isDone = false;
+        //    c.hasStarted = false;
+        //    ci = ci.Next;
+        //}
     }
 
     void TestDummyStart(List<Vector3> dirs) {
         LoadMoveInstructions(dirs);
         loop = true;
     }
-    void Awake() {
+    void Start() {
         GameObject gameManagement = GameObject.Find("GameManagement");
         GameObject board = GameObject.Find("Board");
         GameObject processes = GameObject.Find("Processes");
@@ -85,27 +91,31 @@ public class ProcessBehaviour : MonoBehaviour {
         // }
         // TestDummyStart(directions);
 
-        currentInstruction = instructions.First;
-        blinkAnimationCurve = gameController.blinkAnimationCurve;
-        nextPosition = transform.position;
+        currentInstructionNode = Program.Instructions.First;
+        //blinkAnimationCurve = gameController.blinkAnimationCurve;
+        //nextPosition = transform.position;
     }
 
     void FixedUpdate() {
+        Animate();
+        ExecuteInstruction();
+    }
+
+    void Animate() {
         timer = timeController.Timer;
         rate = timeController.clockRate;
         float delta = 1 - (rate - timer) / rate;
         lightComponent.intensity = blinkAnimationCurve.Evaluate(delta);
-        //if (currentInstruction != null) {
-        //    Instruction curr = currentInstruction.Value;
-        //    if (!curr.isDone) {
-        //        curr.Execute();
-        //    } else {
-        //        currentInstruction = currentInstruction.Next;
-        //    }
-        //} else if (loop) {
-        //    ResetInstructions();
-        //    currentInstruction = instructions.First;
-        //}
+    }
+
+    void ExecuteInstruction() {
+        IInstruction currentInstruction = currentInstructionNode.Value;
+        if (timeController.isCycleStart()) {
+            currentInstruction.Execute();
+            currentInstructionNode = currentInstructionNode.Next;
+            if (currentInstructionNode == null)
+                currentInstructionNode = Program.Instructions.First;
+        }
     }
 
     void OnTriggerEnter(Collider other) {

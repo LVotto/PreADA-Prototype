@@ -22,6 +22,10 @@ public class ProcessDeployerBehaviour : MonoBehaviour {
             GameObject process = Instantiate(ProcessPrefab, transform.position, transform.rotation);
             process.transform.position += Vector3.back;
             process.transform.parent = Board.transform;
+
+            ProcessBehaviour processBehaviour = process.GetComponent<ProcessBehaviour>();
+            processBehaviour.Program = program;
+            program.Process = processBehaviour;
         }
     }
 }
