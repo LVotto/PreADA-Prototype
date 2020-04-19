@@ -10,8 +10,11 @@ public class StraightMovementInstruction {
         get => type;
         set {
             type = value;
-            loadMaterial();
+            LoadMaterial();
         }
+    }
+    public string Name {
+        get => InstructionType.InstructionTypeNameMap[Type];
     }
 
     public static Dictionary<int, Vector2> StraightMovementMap = new Dictionary<int, Vector2>() {
@@ -29,11 +32,11 @@ public class StraightMovementInstruction {
         Direction = direction;
         if (type != InstructionType.Void) {
             Type = type;
-            loadMaterial();
+            LoadMaterial();
         }
     }
 
-    private void loadMaterial() {
+    private void LoadMaterial() {
         string source;
         InstructionType.InstructionTypeMaterialMap.TryGetValue(Type, out source);
         if (source != null) {

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProgramBuilder : MonoBehaviour {
+    public GameObject ProgramInstructionPrefab;
+
+    Program program;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -10,6 +14,11 @@ public class ProgramBuilder : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+    }
+
+    public void AddInstruction(StraightMovementInstruction instruction) {
+        program.AddInstruction(instruction);
 
     }
 }
