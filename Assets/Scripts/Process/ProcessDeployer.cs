@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ProcessDeployer : MonoBehaviour {
     Program program;
-    TimeController timeController;
 
     public GameObject ProcessPrefab;
-    public GameObject GameManagement;
+    public GameObject Board;
     public Program Program {
         get => program;
         set {
@@ -16,16 +15,11 @@ public class ProcessDeployer : MonoBehaviour {
         }
     }
 
-    void Start() {
-        GameObject gameManagement = GameObject.Find("GameManagement");
-        timeController = gameManagement.GetComponent<TimeController>();
-    }
-
     void FixedUpdate() {
         if (Input.GetMouseButtonDown(0)) {
-            GameObject process = Instantiate(ProcessPrefab);
+            GameObject process = Instantiate(ProcessPrefab, transform.position, transform.rotation);
             process.transform.position += Vector3.back;
-            process.transform.parent = transform.parent;
+            process.transform.parent = Board.transform;
         }
     }
 }
