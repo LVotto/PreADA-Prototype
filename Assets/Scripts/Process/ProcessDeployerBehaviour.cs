@@ -27,5 +27,8 @@ public class ProcessDeployerBehaviour : MonoBehaviour {
             processBehaviour.Program = program;
             program.Process = processBehaviour;
         }
+        if (Input.GetMouseButtonDown(1)) {
+            Program = null;
+        }
     }
 }

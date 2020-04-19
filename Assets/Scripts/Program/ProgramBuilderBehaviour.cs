@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,9 @@ public class ProgramBuilderBehaviour : MonoBehaviour {
     public void OnDeployButtonClick() {
         ProcessDeployerBehaviour processDeployer = CursorObject.GetComponent<ProcessDeployerBehaviour>();
         processDeployer.Program = program;
+        program = new Program();
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ProgramInstruction"))
+            Destroy(obj);
         gameObject.SetActive(false);
     }
 }
