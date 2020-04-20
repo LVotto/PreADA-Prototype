@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProcessBehaviour : MonoBehaviour {
     Light lightComponent;
     TimeController timeController;
     LinkedListNode<IInstruction> currentInstructionNode;
+    GameObject processPlaceholder;
+    GameObject processContainer;
+    int offsetY = 100;
 
     public AnimationCurve moveAnimationCurve;
     public AnimationCurve blinkAnimationCurve;
     public AudioSource KillSource;
     public GameObject DyingLightPrefab;
+    public GameObject ProcessPlaceholderPrefab;
     public Vector3 nextPosition;
 
     public Program Program { get; set; }
@@ -24,14 +29,24 @@ public class ProcessBehaviour : MonoBehaviour {
         Instantiate(DyingLightPrefab, dyingPosition, Quaternion.identity);
         KillSource.Play();
         Destroy(gameObject);
+        Destroy(processPlaceholder);
     }
 
     void Start() {
+        processContainer = GameObject.Find("ProcessContainer");
         GameObject gameManagement = GameObject.Find("GameManagement");
-        lightComponent = GetComponentInChildren<Light>();
         timeController = gameManagement.GetComponent<TimeController>();
+        lightComponent = GetComponentInChildren<Light>();
 
         currentInstructionNode = Program.Instructions.First;
+
+        int index = processContainer.transform.childCount;
+        processPlaceholder = Instantiate(ProcessPlaceholderPrefab);
+        processPlaceholder.transform.SetParent(processContainer.transform, false);
+        processPlaceholder.transform.localPosition += new Vector3(0, -(offsetY * index), 0);
+
+        Text processPlaceholderText = processPlaceholder.GetComponent<Text>();
+        processPlaceholderText.text = "P" + index;
     }
 
     void FixedUpdate() {

@@ -137,6 +137,9 @@ MonoBehaviour:
   KillSource: {fileID: 3200960897466221527}
   DyingLightPrefab: {fileID: 4077253431285530332, guid: ce50db971dbdf974e8917c7a3f924c56,
     type: 3}
+  ProcessPlaceholderPrefab: {fileID: 3375113913579601917, guid: 4e6df212440294daf99de9329614e061,
+    type: 3}
+  ProcessContainer: {fileID: 0}
   nextPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &3162409864398166854
 Rigidbody:
