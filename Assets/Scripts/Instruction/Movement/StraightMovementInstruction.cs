@@ -21,6 +21,10 @@ public class StraightMovementInstruction : Instruction {
     }
 
     public override void Execute() {
-        Program.Process.LocalPosition += Direction;
+        throw new System.NotImplementedException();
+    }
+
+    public override void Execute(ProcessBehaviour process) {
+        process.LocalPosition += Direction;
     }
 }

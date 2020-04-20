@@ -24,8 +24,9 @@ public class ProcessDeployerBehaviour : MonoBehaviour {
             process.transform.parent = Board.transform;
 
             ProcessBehaviour processBehaviour = process.GetComponent<ProcessBehaviour>();
-            processBehaviour.Program = program;
-            program.Process = processBehaviour;
+            Program programCopy = new Program(program);
+            programCopy.Process = processBehaviour;
+            processBehaviour.Program = programCopy;
         }
         if (Input.GetMouseButtonDown(1)) {
             Program = null;

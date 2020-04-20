@@ -23,6 +23,7 @@ public class MoveInstruction : Instruction
         stepSize = gameController.cellSize;
     }
 
+    public override void Execute(ProcessBehaviour process) { Execute(); }
     public override void Execute(){
         PreUpdate();
         processBehaviour.nextPosition = stop;

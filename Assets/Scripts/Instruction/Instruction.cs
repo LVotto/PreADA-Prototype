@@ -29,7 +29,14 @@ public abstract class Instruction : IInstruction {
     }
     public Program Program { get; set; }
 
+    public Instruction() { }
+    public Instruction(int type) : this() {
+        Type = type;
+    }
+    public Instruction(Instruction instruction) : this(instruction.Type) { }
+
     public abstract void Execute();
+    public abstract void Execute(ProcessBehaviour process);
 
     protected void LoadMaterial() {
         string source;

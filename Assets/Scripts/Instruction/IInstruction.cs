@@ -10,4 +10,5 @@ public interface IInstruction {
     Program Program { get; set; }
 
     void Execute();
+    void Execute(ProcessBehaviour process);
 }
